@@ -1,0 +1,31 @@
+ <!-- 展示列表 -->
+ <div class="bb">         
+    <div class="topper">
+        <!-- {{dataArr.length}} -->
+        <h2>正在进行</h2>
+        <ul>
+            <li *ngFor="let item of dataArr;let i = index ">
+                &nbsp; &nbsp; &nbsp;
+                <input type="checkbox" (change)="changeDataone(i)">
+                 &nbsp; &nbsp; 
+                {{item}}                                                              
+                <button class="de" (click)="deleteone(i)">删除</button> 
+                <!-- 点击复选框时绑定函数，使数据从正在进行变到已经完成,绑定函数：左边事件=右边函数＋()：(change)="changeData(i)
+                  ,i表示第i个数据，将其传到js的函数中 -->
+            </li>
+        </ul>
+    </div>
+    <div class="footer">
+         <!-- {{dataA.length}} -->
+        <h2>已经完成    </h2>
+        <ul>
+            <li *ngFor="let item of dataA ;let i = index">
+                &nbsp; &nbsp; &nbsp;
+                <input type="checkbox" (change)="changeDatatwo(i)" >
+                 &nbsp; &nbsp; 
+                {{item}}
+                <button (click)="deletetwo(i)" >删除</button>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.bb{
+    margin-top: 10px;
+    margin-left: 360px
+}
+
+
+.topper{
+    background-color:green;
+    width: 500px;
+}
+.footer{
+    background-color:blueviolet;
+    width: 500px;
+    margin-top: 6px;
+}
+
+.bb button{
+    margin-left:200px;
+    position: absolute;
+}
+.bb ul{
+    list-style: none;
+}
