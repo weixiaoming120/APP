@@ -1,28 +1,35 @@
-//从跟模块中引入的根组件
 import { Component } from '@angular/core';
-import { LocalstorageServiceComponent } from './localstorage-service/localstorage-service.component';
+import { LocalstorageService } from '../app/services/localstorage.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-
   styleUrls: ['./app.component.css']
 })
-
-
-
-
 export class AppComponent {
-  private todolist:Array<any>;
-  private data:Array<any>;
-constructor(
-  public set:LocalstorageServiceComponent,
-  public remove:LocalstorageServiceComponent){}
+  //title = 'app';
+  obj = new LocalstorageService();
+  tolist = [];
+  content = '';
+  i=0;
+
+
+  idx:number;
+  getI(ww){
+    this.idx = ww;
+  }
+ 
+  add(){
+    //将数据添加到正在进行
+    if(this.content == ''){
+      alert("您输入的数值不能为空值");
+      return false;
+    }else{
+      this.tolist.push(this.content);
+     this.obj.setItem('todolist',this.tolist);
+    }
+     console.log("2");
+      this.content = '';
+  }
   
-getData(event){
-  this.todolist=event;
-  this.data=this.todolist;
-  //console.log(this.data);
-}
-
-
 }

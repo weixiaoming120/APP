@@ -1,31 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
 
-import { AppComponent }   from './app.component';
-import { TodolistComponent } from './components/todolist/todolist.component';
-import { GoodslistComponent } from './components/goodslist/goodslist.component';
-import { VoterComponent } from './components/voter/voter.component';
-import { AComponent } from './components/a/a.component';
-import { BComponent } from './components/b/b.component';
-import { LocalstorageServiceComponent } from './localstorage-service/localstorage-service.component';
+import { AppComponent } from './app.component';
+import { RecordComponent } from './components/todolist/todolist.component';
+import { FormsModule } from '@angular/forms';
+import { LocalstorageService } from './services/localstorage.service';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent,
-    GoodslistComponent,
-    VoterComponent,
-    AComponent,
-    BComponent,
-    LocalstorageServiceComponent,
+    RecordComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
+
   ],
-  providers: [LocalstorageServiceComponent],
+  providers: [LocalstorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

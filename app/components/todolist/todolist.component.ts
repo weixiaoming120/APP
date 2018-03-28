@@ -1,41 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Optional ,OnInit ,Input , Output,EventEmitter, } from '@angular/core';
+
 
 @Component({
-  selector: 'app-todolist',
+  selector: 'app-record',
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css']
 })
-export class TodolistComponent implements OnInit {
+export class RecordComponent implements OnInit {
 
-  constructor() { }
+  constructor( ) {
+
+  }
+
+  @Input( ) tolist:Array<any>;
+  @Output() getIndex=new EventEmitter();
+	
 
   ngOnInit() {
   }
-  tolist = [];
+
   comlist = [];
   content = '';
-  addData(){
-    this.tolist.push(this.content);
-    this.content = '';
+  changeDataone(i){
+    
+//删除正在进行的数据,i表示删除的数据，1表示true
+    this.tolist.splice(i,1);
+    // 将数据从正在进行添加到已经完成
+    this.comlist.push(this.tolist[i]);
+   
+    //  this.remove('data');
+
+
   }
-  keyData(e){
-    if(e.keyCode==13){
-      this.tolist.push(this.content);
-      this.content = '';
-    }
-  }
-  delData(i){
-  	this.tolist.splice(i,1);
-  }
-  change(i){
-    this.comlist.push(this.tolist[i])
+//点击删除按钮时删除数据
+  deleteone(i){
     this.tolist.splice(i,1);
   }
-  delData2(i){
-  	this.comlist.splice(i,1);
-  }
-  change2(i){
-    this.tolist.push(this.comlist[i])
+  changeDatatwo(i){
+    // 将数据从已经完成添加到正在进行
+    this.tolist.push(this.comlist[i]);
+    //删除正在进行的数据,i表示删除的数据，1表示true
     this.comlist.splice(i,1);
   }
+  deletetwo(i){
+    this.comlist.splice(i,1);
+  }
+  fn(i){
+    this.getIndex.emit(i);
+  }
+
 }
