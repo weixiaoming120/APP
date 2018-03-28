@@ -1,10 +1,9 @@
 <ul>
   <li *ngFor="let item of list;let i = index;" (click)="goDetail(i)">
-      <div class="list">
+      <div class="goodlist">
           <img src='{{item.goodsListImg}}' alt=''>
           <p>{{item.goodsName}}</p>
-          <p class="dis">{{item.discount}}折</p> 
-          <p class="price">￥{{item.price}}</p>
+          <p class="zhe">{{item.discount}}打折扣</p><p class="price">￥{{item.price}}</p>
       </div>  
   </li>
 </ul>
